@@ -1,3 +1,7 @@
+# v1.0.9.20 - WASM mappings for game build 2.83.0_1ea08aa55e
+
+Updated map navigation and kingdom switching.
+
 # v1.0.9.19 — GUI-only alliance tags
 
 When a player's 20007 profile is retrieved during power lookup, the GUI shows the verified alliance tag as `[TAG] Player Name`. Names without a known tag are unchanged. Original names are preserved for lookup matching, CSV, SQL, and Discord. Alliance tags are kept in GUI memory only, so they must be retrieved again in a later session.

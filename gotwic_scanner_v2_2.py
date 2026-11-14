@@ -74,14 +74,14 @@ class ColorTracker(LiveTracker):
 
 PREFLIGHT="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable in Unity context'};
-const f=t.get(62896);
-if(typeof f!=='function')return {ok:false,error:'Table slot 62896 not callable'};
-if(f.name!=='117256'||f.length!==5)return {ok:false,error:'Function identity mismatch',name:f.name};
+const f=t.get(63903);
+if(typeof f!=='function')return {ok:false,error:'Table slot 63903 not callable'};
+if(f.name!=='126651'||f.length!==5)return {ok:false,error:'Function identity mismatch',name:f.name};
 return {ok:true,functionName:f.name}})()"""
 NAV="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable'};
-const f=t.get(62896);
-if(typeof f!=='function'||(f.name!=='117256'||f.length!==5))return {ok:false,error:'Function identity mismatch',name:f?.name};
+const f=t.get(63903);
+if(typeof f!=='function'||(f.name!=='126651'||f.length!==5))return {ok:false,error:'Function identity mismatch',name:f?.name};
 try{const v=f(__MAPID__,150,200,250,300);
 return {ok:true,status:'returned',returnValue:String(v)}}
 catch(e){return {ok:false,error:String(e),stack:String(e.stack||'').slice(0,600)}}})()"""
@@ -90,8 +90,8 @@ catch(e){return {ok:false,error:String(e),stack:String(e.stack||'').slice(0,600)
 # kingdom number, encoded as 2625310000 + kingdom in the WASM i64 argument.
 KINGDOM_SELECT="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable'};
-const f=t.get(62893);
-if(typeof f!=='function'||(f.name!=='117283'||f.length!==6))return {ok:false,error:'Kingdom selector identity mismatch',name:f?.name};
+const f=t.get(63900);
+if(typeof f!=='function'||(f.name!=='126682'||f.length!==6))return {ok:false,error:'Kingdom selector identity mismatch',name:f?.name};
 try{const v=f(BigInt(2625310000)+BigInt(__KINGDOM__),0,0,0,0,0);
 return {ok:true,returnValue:String(v)}}
 catch(e){return {ok:false,error:String(e)}}})()"""
