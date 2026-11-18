@@ -1,3 +1,7 @@
+# v1.0.9.21 - WASM mappings for game build 2.83.0_6dfe1f27bf
+
+Updated map navigation to slot 63919 (function 126662) and kingdom switching to slot 63916 (function 126693). Both entry points were verified in the live game; kingdom switching was confirmed at K301.
+
 # v1.0.9.20 - WASM mappings for game build 2.83.0_1ea08aa55e
 
 Updated map navigation and kingdom switching.
