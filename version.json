@@ -1,5 +1,5 @@
 {
-  "version": "1.0.9.21",
+  "version": "1.0.9.22",
   "files": [
     {
       "path": "CREATE_SHORTCUT.ps1",
@@ -13,13 +13,13 @@
     },
     {
       "path": "GUI_README.md",
-      "size": 30452,
-      "sha256": "3e9e93652dbfcc73a73a6fbd98b68053d1228fa5bfd9e9d62aeb00104c0aa8be"
+      "size": 30704,
+      "sha256": "6e77aabd2339a6f255de1ad11962e353a1f05e892fb37d5575277aee1cd79d77"
     },
     {
       "path": "README.md",
-      "size": 30452,
-      "sha256": "3e9e93652dbfcc73a73a6fbd98b68053d1228fa5bfd9e9d62aeb00104c0aa8be"
+      "size": 30704,
+      "sha256": "6e77aabd2339a6f255de1ad11962e353a1f05e892fb37d5575277aee1cd79d77"
     },
     {
       "path": "RUN_GUI.bat",
@@ -29,7 +29,7 @@
     {
       "path": "VERSION",
       "size": 9,
-      "sha256": "acc6517858f9226c8f36dcf2fecf27ddabc00e2c9b1033357df31664d471cdbf"
+      "sha256": "6a3b84622261a0edf32307486c1811687a2d12415b144ac51838cea17159f6e9"
     },
     {
       "path": "castle_power_detector.py",
@@ -59,7 +59,7 @@
     {
       "path": "gotwic_gui.py",
       "size": 78276,
-      "sha256": "86bf10b89e2dd4724e3614f0e48bd2415e58b618a64e2244ecb10dee9b9bc73f"
+      "sha256": "464b2907a08cdfbedf6135c871e9bb703960ff0be774d55fe6e77cc53db0c527"
     },
     {
       "path": "gotwic_kingdom542_production_mask.json",
@@ -69,7 +69,7 @@
     {
       "path": "gotwic_scanner_v2_2.py",
       "size": 34556,
-      "sha256": "33dde5ede09721af2f46895541f727a4c0cae66110ee16720a77b74675655651"
+      "sha256": "a012deda5b022567dc79308575ef505398764ef1a07e63a050ee0b3f91b5cca8"
     },
     {
       "path": "license_client.py",
