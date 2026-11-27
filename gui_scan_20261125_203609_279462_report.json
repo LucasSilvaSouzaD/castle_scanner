@@ -1,0 +1,79 @@
+{
+  "version": "2.2",
+  "scan_utc": "2026-11-25T20:36:09.449612Z",
+  "kingdom": 1,
+  "mode": "auto",
+  "step_x": 25,
+  "step_y": 13,
+  "delay_seconds": 0,
+  "errors": [],
+  "import": {
+    "status": "skipped",
+    "row_count": 0
+  },
+  "csv_export": {
+    "status": "success",
+    "filename": "/Users/lucas/Documents/Github/castle_scanner_2/csv/1_20261125_203609_449612.csv",
+    "row_count": 0
+  },
+  "castles": [],
+  "context_id": 3,
+  "preflight": {
+    "ok": true,
+    "functionName": "128312"
+  },
+  "kingdom_selection": {
+    "ok": true,
+    "returnValue": "undefined"
+  },
+  "mask": {
+    "file": "/Users/lucas/Documents/Github/castle_scanner_2/gotwic_kingdom542_production_mask.json",
+    "original_points": 1710,
+    "retained_points": 1447,
+    "excluded_points": 266,
+    "extra_points": [
+      [
+        680,
+        623
+      ],
+      [
+        670,
+        629
+      ],
+      [
+        664,
+        634
+      ]
+    ]
+  },
+  "gui_alliances": [],
+  "power_lookup": {
+    "enabled": true,
+    "eligible": 0,
+    "skipped": 0,
+    "attempted": 0,
+    "matched": 0,
+    "unavailable": 0,
+    "timeout_seconds": 2.5,
+    "errors": []
+  },
+  "summary": {
+    "navigation_successes": 1447,
+    "navigation_planned": 1447,
+    "missing_response_points": 0,
+    "retry_attempts": 0,
+    "response_timeout_seconds": 1.5,
+    "max_retries": 2,
+    "buffer_size": 24,
+    "batch_stats": {
+      "completed": 61,
+      "short": 0,
+      "max_outstanding": 24
+    },
+    "average_batch_duration_seconds": 0.5663,
+    "castle_9001_frames": 1449,
+    "decoded_castles": 0,
+    "elapsed_seconds": 37.549
+  },
+  "missing_points": []
+}

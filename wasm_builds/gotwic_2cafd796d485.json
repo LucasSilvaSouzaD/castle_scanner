@@ -1,0 +1,22 @@
+{
+  "wasm_file": "gotwic_2cafd796d485.wasm",
+  "sha256": "2cafd796d485bed83406ad8e0ca2a223795a6ee22467f2a7d9b0156db03966f9",
+  "size": 94367199,
+  "source": "Module.wasmBinary",
+  "saved_utc": "2026-11-25T20:33:43+00:00",
+  "table_length": 291564,
+  "unity_version": null,
+  "scanner_expected": {
+    "nav": {
+      "slot": 63922,
+      "name": "126674",
+      "length": 5
+    },
+    "kingdom": {
+      "slot": 63919,
+      "name": "126705",
+      "length": 6
+    },
+    "preflight_slot": 63922
+  }
+}

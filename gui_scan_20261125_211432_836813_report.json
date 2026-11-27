@@ -1,0 +1,44 @@
+{
+  "version": "2.2",
+  "scan_utc": "2026-11-25T21:14:32.968740Z",
+  "kingdom": 1,
+  "mode": "auto",
+  "step_x": 25,
+  "step_y": 13,
+  "delay_seconds": 0,
+  "errors": [
+    "KeyboardInterrupt: "
+  ],
+  "import": null,
+  "csv_export": null,
+  "castles": [],
+  "context_id": 3,
+  "preflight": {
+    "ok": true,
+    "functionName": "128312"
+  },
+  "kingdom_selection": {
+    "ok": true,
+    "returnValue": "undefined"
+  },
+  "mask": {
+    "file": "/Users/lucas/Documents/Github/castle_scanner_2/gotwic_kingdom542_production_mask.json",
+    "original_points": 1710,
+    "retained_points": 1447,
+    "excluded_points": 266,
+    "extra_points": [
+      [
+        680,
+        623
+      ],
+      [
+        670,
+        629
+      ],
+      [
+        664,
+        634
+      ]
+    ]
+  }
+}

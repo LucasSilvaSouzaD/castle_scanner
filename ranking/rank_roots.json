@@ -1,0 +1,248 @@
+{
+ "build": "gotwic_2cafd796d485.wasm",
+ "session": {
+  "this": 145194912,
+  "klass": 85321520,
+  "method": 150764104
+ },
+ "this_chains": [
+  {
+   "root": 6664780,
+   "offsets": [
+    92,
+    4
+   ],
+   "root_is_klass": true
+  },
+  {
+   "root": 6162392,
+   "offsets": [
+    92,
+    28
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6622056,
+   "offsets": [
+    92,
+    28
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 8376028,
+   "offsets": [
+    112,
+    16
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6657452,
+   "offsets": [
+    92,
+    44
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6657408,
+   "offsets": [
+    92,
+    52
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6657412,
+   "offsets": [
+    92,
+    68
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6657420,
+   "offsets": [
+    92,
+    76
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6665936,
+   "offsets": [
+    92,
+    84
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6668056,
+   "offsets": [
+    92,
+    92
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6785964,
+   "offsets": [
+    156,
+    28
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6668292,
+   "offsets": [
+    92,
+    100
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6668924,
+   "offsets": [
+    92,
+    108
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 8376028,
+   "offsets": [
+    112,
+    88
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6668996,
+   "offsets": [
+    92,
+    116
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6669780,
+   "offsets": [
+    92,
+    140
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6785960,
+   "offsets": [
+    204,
+    28
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6669868,
+   "offsets": [
+    92,
+    148
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6672288,
+   "offsets": [
+    92,
+    156
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6206760,
+   "offsets": [
+    92,
+    172
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 8376028,
+   "offsets": [
+    112,
+    160
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6785956,
+   "offsets": [
+    252,
+    28
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6190296,
+   "offsets": [
+    92,
+    196
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6629048,
+   "offsets": [
+    92,
+    196
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6704624,
+   "offsets": [
+    92,
+    212
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6144120,
+   "offsets": [
+    92,
+    220
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6617468,
+   "offsets": [
+    92,
+    220
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 6704676,
+   "offsets": [
+    92,
+    252
+   ],
+   "root_is_klass": false
+  },
+  {
+   "root": 8376028,
+   "offsets": [
+    112,
+    232
+   ],
+   "root_is_klass": false
+  }
+ ],
+ "method_chains": [
+  {
+   "root": 6964308,
+   "offsets": []
+  }
+ ]
+}

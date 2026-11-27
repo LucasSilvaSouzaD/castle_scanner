@@ -74,14 +74,14 @@ class ColorTracker(LiveTracker):
 
 PREFLIGHT="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable in Unity context'};
-const f=t.get(63922);
-if(typeof f!=='function')return {ok:false,error:'Table slot 63922 not callable'};
-if(f.name!=='126674'||f.length!==5)return {ok:false,error:'Function identity mismatch',name:f.name};
+const f=t.get(52032);
+if(typeof f!=='function')return {ok:false,error:'Table slot 52032 not callable'};
+if(f.name!=='128312'||f.length!==5)return {ok:false,error:'Function identity mismatch',name:f.name};
 return {ok:true,functionName:f.name}})()"""
 NAV="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable'};
-const f=t.get(63922);
-if(typeof f!=='function'||(f.name!=='126674'||f.length!==5))return {ok:false,error:'Function identity mismatch',name:f?.name};
+const f=t.get(52032);
+if(typeof f!=='function'||(f.name!=='128312'||f.length!==5))return {ok:false,error:'Function identity mismatch',name:f?.name};
 try{const v=f(__MAPID__,150,200,250,300);
 return {ok:true,status:'returned',returnValue:String(v)}}
 catch(e){return {ok:false,error:String(e),stack:String(e.stack||'').slice(0,600)}}})()"""
@@ -90,14 +90,18 @@ catch(e){return {ok:false,error:String(e),stack:String(e.stack||'').slice(0,600)
 # kingdom number, encoded as 2625310000 + kingdom in the WASM i64 argument.
 KINGDOM_SELECT="""(()=>{const t=window.gameInstance?.Module?.asm?.__indirect_function_table;
 if(!t)return {ok:false,error:'WASM table unavailable'};
-const f=t.get(63919);
-if(typeof f!=='function'||(f.name!=='126705'||f.length!==6))return {ok:false,error:'Kingdom selector identity mismatch',name:f?.name};
+const f=t.get(52029);
+if(typeof f!=='function'||(f.name!=='128343'||f.length!==6))return {ok:false,error:'Kingdom selector identity mismatch',name:f?.name};
 try{const v=f(BigInt(2625310000)+BigInt(__KINGDOM__),0,0,0,0,0);
 return {ok:true,returnValue:String(v)}}
 catch(e){return {ok:false,error:String(e)}}})()"""
 
 # v1.0.4: event-driven 20007 castle power, enabled only by -v / --verbose.
 from power_timing import PROFILES, DEFAULT_PROFILE, timings
+import power_ranking
+import rank_auto
+import random
+import scan_routes
 POWER_TIMEOUT = 2.5
 POWER_CASTLE_SETTLE = 0.05
 POWER_WATER_SETTLE = 0.05
@@ -138,6 +142,22 @@ def decode_power_20007(raw):
     if length:
         import lz4.block
         payload = lz4.block.decompress(payload, uncompressed_size=length)
+    if payload.lstrip()[:1] == b'{':
+        # JSON protocol (game build of 2026-11-25): worldCastleInfoResponse.PlayerInfo
+        info = json.loads(payload.decode('utf-8')).get('worldCastleInfoResponse', {})
+        player = info.get('PlayerInfo') or {}
+        ext = info.get('playerExtInfo') or {}
+        def _int(v):
+            try: return int(v)
+            except (TypeError, ValueError): return None
+        name = player.get('Nickname')
+        return {'player': name.strip() if isinstance(name, str) else None,
+                'power': _int(player.get('Power')),
+                'alliance': player.get('Code') or None,
+                'player_id': str(player.get('playerId') or '') or None,
+                'kill': _int(player.get('Kill')),
+                'merit': _int(ext.get('peerageScore')),
+                'castle_level': _int(player.get('CastleLv'))}
     player = _power_fields(_power_fields(_power_fields(payload)[20007])[1])
     name = player.get(16)
     alliance = player.get(7)  # Verified in the 20007 profile captures.
@@ -251,6 +271,12 @@ def main():
     p.add_argument('-v','--verbose',action='store_true',help='Retrieve power for UNPROTECTED and Fervor (UNKNOWN) castles; protected stay 0')
     p.add_argument('--power-timing-profile', choices=tuple(PROFILES), default=DEFAULT_PROFILE)
     p.add_argument('--no-db',action='store_true',help='Diagnostic scan without database import')
+    p.add_argument('--no-rank-request',action='store_true',help='Do not ask the game for the Power ranking')
+    p.add_argument('--route',choices=('fixed','random')+scan_routes.ROUTES,default='fixed',
+                   help='Order of the map points: fixed (default, row by row), random (a different route each scan) or a named route. Coverage is identical.')
+    p.add_argument('--route-seed',type=int,default=None,help='Reproduce a random route (testing)')
+    p.add_argument('--pace',choices=('normal','discreet'),default='normal',
+                   help='normal (default): fixed batches, no pauses; discreet: varying batch sizes and short random pauses')
     a=p.parse_args()
     global POWER_TIMEOUT, POWER_CASTLE_SETTLE, POWER_WATER_SETTLE, POWER_DISMISS_WAIT
     selected_timing = timings(a.power_timing_profile)
@@ -287,7 +313,7 @@ def main():
     report={'version':'2.2','scan_utc':stamp.isoformat()+'Z','kingdom':a.kingdom,'mode':a.mode,
             'step_x':25,'step_y':13,'delay_seconds':0,'errors':[],'import':None,'csv_export':None,'castles':[]}
     tracker=ColorTracker('K','gotwic_v1_unused.csv','gotwic_v1_unused_open.csv',quiet=True,show=a.show,player=a.player,color=enable_vt())
-    active={'castle_frames':0,'decoder_errors':[],'power_profiles':[],'power_decode_errors':[],'power_visit':None}
+    active={'castle_frames':0,'decoder_errors':[],'power_profiles':[],'power_decode_errors':[],'power_visit':None,'ranking_entries':0}
     missing_points=[]; retry_attempts=0; response_waits=[]; batch_stats={'completed':0,'short':0,'max_outstanding':0}
     with urllib.request.urlopen(f'http://127.0.0.1:{a.port}/json',timeout=5) as r:pages=json.load(r)
     page=next((q for q in pages if q.get('type')=='page' and 'gtarcade' in q.get('url','').lower() and q.get('webSocketDebuggerUrl')),None)
@@ -313,6 +339,9 @@ def main():
                 if len(raw)<13:return
                 message_id=int.from_bytes(raw[4:8],'big')
             except Exception:return
+            if message_id in power_ranking.RANK_MESSAGE_IDS:
+                active['ranking_entries']+=power_ranking.record_frame(raw)
+                return
             if a.verbose and message_id==20007:
                 try:
                     profile=decode_power_20007(raw)
@@ -361,6 +390,21 @@ def main():
         print(f'Kingdom switch requested: {a.kingdom}',flush=True)
         # Allow the game to process the kingdom transition before map requests.
         collect(1.0)
+        if not a.no_rank_request:
+            # Ask the game for the kingdom Power ranking (top 100) without opening its window;
+            # the 20403 answer is stored by poll() and fills castle power after the sweep.
+            try:
+                rank_result=evaluate(rank_auto.request_js(),cid)
+            except Exception as exc:
+                rank_result={'ok':False,'error':str(exc)}
+            report['rank_request']=rank_result
+            if isinstance(rank_result,dict) and rank_result.get('ok'):
+                before_rank=active['ranking_entries']
+                end_rank=time.monotonic()+3.0
+                while active['ranking_entries']==before_rank and time.monotonic()<end_rank:poll()
+                print(f'Power ranking received: {active["ranking_entries"]-before_rank} players',flush=True)
+            else:
+                print(f'Power ranking request skipped: {rank_result}',flush=True)
         print('GOTWiC Scanner v2.2 | Kingdom',a.kingdom,'| mode',a.mode,'| show',a.show,'| player',repr(a.player) if a.player else 'ALL',flush=True)
         if a.auto_start:
             print('Game preflight passed — starting scan automatically.', flush=True)
@@ -386,7 +430,12 @@ def main():
             else:
                 selected_extras=[]
                 grid_retained=len(points)
+            route_name,route_seed='fixed',None
+            if a.route!='fixed':
+                points,route_name,route_seed=scan_routes.plan_route(points[:grid_retained],points[grid_retained:],a.route,a.route_seed)
             total=len(points)
+            report['route']={'name':route_name,'seed':route_seed,'pace':a.pace,'pauses_s':0.0}
+            print(f'Route: {route_name} | pace: {a.pace}',flush=True)
             report['mask']={'file':a.mask if mask_points is not None else None,
                             'original_points':original_total,'retained_points':total,
                             'excluded_points':original_total-grid_retained,
@@ -395,8 +444,9 @@ def main():
             # A 9001 frame has no verified request ID. Account for responses by
             # batch totals, never pretend to attribute an individual frame to X/Y.
             # Keep at most --buffer navigation responses outstanding.
-            for offset in range(0,len(points),a.buffer):
-                batch=points[offset:offset+a.buffer]
+            pace_rng=random.Random(None if route_seed is None else route_seed+1)
+            for batch_no,(offset,size,pause_after) in enumerate(scan_routes.plan_batches(len(points),a.buffer,a.pace,pace_rng),1):
+                batch=points[offset:offset+size]
                 frame_start=active['castle_frames']
                 started=time.monotonic()
                 for x,y in batch:
@@ -414,7 +464,7 @@ def main():
                 if received<len(batch):
                     batch_stats['short']+=1
                     deficit=len(batch)-received
-                    print(f'  Batch {offset//a.buffer+1}: {deficit} missing 9001 frame(s); recovery',flush=True)
+                    print(f'  Batch {batch_no}: {deficit} missing 9001 frame(s); recovery',flush=True)
                     # No request correlation exists, so retries are batch-level.
                     # Revisit batch coordinates, one by one, until the deficit
                     # is recovered. Extra responses do not prove spatial coverage.
@@ -435,6 +485,9 @@ def main():
                                                'missing_responses':len(batch)-received})
                 batch_stats['completed']+=1
                 response_waits.append(round(time.monotonic()-started,4))
+                if pause_after>0:
+                    collect(pause_after)
+                    report['route']['pauses_s']=round(report['route']['pauses_s']+pause_after,3)
             collect(a.settle)
         else:
             print('Manual mode: move the map freely. Press Ctrl+C to finish and import.',flush=True)
@@ -445,10 +498,26 @@ def main():
         if active['decoder_errors']:raise RuntimeError(f'Decoder errors: {active["decoder_errors"][:3]}')
         rows=snapshot_rows(tracker,a.kingdom,stamp)
         gui_alliances = []
+        details={}  # row index -> kills / merit / power source (report only; CSV columns unchanged)
+        extra_by_mid={it.get('map_id'): (it.get('extra') or {}) for it in tracker.items}
+        ranking=power_ranking.Ranking()
+        ranked=0
+        for i,row in enumerate(rows):
+            hit=ranking.find(row[5],row[4])
+            if hit:
+                rows[i]=row[:7]+(f'{hit["power"]/1_000_000:.3f}',)+row[8:]
+                ranked+=1
+                details[i]={'kills':hit.get('kill'),'merit':hit.get('merit'),'power_source':'ranking'}
+                if hit.get('alliance'):
+                    gui_alliances.append({'kingdom':a.kingdom,'x':row[1],'y':row[2],'name':row[4],'alliance':hit['alliance']})
+        report['ranking_power']={'cache_players':len(ranking),'filled':ranked,'captured_this_scan':active['ranking_entries'],
+                                 'max_age_hours':power_ranking.DEFAULT_MAX_AGE_HOURS}
+        if len(ranking):
+            print(f'Ranking power: {ranked} castles filled from the in-game ranking ({len(ranking)} players cached)',flush=True)
         power_results={'enabled':a.verbose,'eligible':0,'skipped':0,'attempted':0,'matched':0,'unavailable':0,
                        'timeout_seconds':POWER_TIMEOUT,'errors':[]}
         if a.verbose and rows:
-            power_results['eligible']=sum(row[6] in ('UNPROTECTED', 'UNKNOWN') and not ignored_castle(row[4], row[1], row[2]) for row in rows)
+            power_results['eligible']=sum(row[6] in ('UNPROTECTED', 'UNKNOWN') and row[7] in (0,'0') and not ignored_castle(row[4], row[1], row[2]) for row in rows)
             power_results['skipped']=len(rows)-power_results['eligible']
             print(f'Power lookup: {power_results["eligible"]} UNPROTECTED/Fervor castles ({power_results["skipped"]} skipped) | {a.power_timing_profile} timing profile',flush=True)
             viewport=evaluate('(()=>({w:innerWidth,h:innerHeight}))()',cid)
@@ -461,7 +530,7 @@ def main():
             powered=[]
             for index,row in enumerate(rows):
                 name=row[4]; mid=row[3]; power=0
-                if row[6] not in ('UNPROTECTED', 'UNKNOWN') or ignored_castle(name, row[1], row[2]):
+                if row[6] not in ('UNPROTECTED', 'UNKNOWN') or row[7] not in (0,'0') or ignored_castle(name, row[1], row[2]):
                     powered.append(row)
                     continue
                 power_results['attempted']+=1
@@ -484,6 +553,8 @@ def main():
                         if matching:
                             power=f'{matching["power"]/1_000_000:.3f}'
                             power_results['matched']+=1
+                            details[index]={'kills':matching.get('kill'),'merit':matching.get('merit'),
+                                            'power_source':'profile'}
                             if matching.get('alliance'):
                                 gui_alliances.append({'kingdom':a.kingdom, 'x':row[1], 'y':row[2],
                                                       'name':name, 'alliance':matching['alliance']})
@@ -518,8 +589,15 @@ def main():
         # GUI-only metadata: never written into CSV, SQL, or Discord castle records.
         report['gui_alliances']=gui_alliances
         report['power_lookup']=power_results
+        def _castle_extra(i, r):
+            ex=extra_by_mid.get(r[3]) or {}
+            out={'level':ex.get('level'),'peerage':ex.get('peerage'),'alliance':ex.get('alliance'),
+                 'alliance_name':ex.get('alliance_name')}
+            out.update(details.get(i) or {})
+            return out
         report['castles']=[{'x':r[1],'y':r[2],'map_id':r[3],'name':r[4],'player_id':r[5],
-                            'status':r[6],'power_millions':r[7],'observations':r[10]} for r in rows]
+                            'status':r[6],'power_millions':r[7],'observations':r[10],**_castle_extra(i, r)}
+                           for i, r in enumerate(rows)]
         report['summary']={'navigation_successes':jumps,'navigation_planned':total if a.mode=='auto' else None,
                            'missing_response_points':len(missing_points),'retry_attempts':retry_attempts,
                            'response_timeout_seconds':a.response_timeout,'max_retries':a.retries,

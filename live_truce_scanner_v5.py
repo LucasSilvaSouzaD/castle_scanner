@@ -40,6 +40,50 @@ COLUMNS = ['kingdom','x','y','map_id','name','player_id','status','status_source
 MAX_MAP = 720 * 720
 
 
+def json_castles(payload, with_extra=False):
+    """Castle records from the JSON map protocol (game build of 2026-11-25).
+
+    The server now sends 9001/9002/9008 bodies as JSON instead of protobuf, e.g.
+    {"worldMapViewResponse":{"allviewcastles":[{"Grid":354732,"PlayerID":"21256...",
+    "PlayerName":"...","Status":1,...}]}}.  The JSON keys keep the old protobuf
+    field order: Grid=1, PlayerID=2, PlayerName=3, Status=10 (1 PROTECTED / 0 UNPROTECTED).
+    """
+    try:
+        doc = json.loads(payload.decode('utf-8'))
+    except (ValueError, UnicodeError):
+        return
+    stack = [doc]
+    while stack:
+        node = stack.pop()
+        if isinstance(node, list):
+            stack.extend(reversed(node))
+            continue
+        if not isinstance(node, dict):
+            continue
+        if 'Grid' in node and 'PlayerName' in node and 'PlayerID' in node:
+            try:
+                map_id = int(node['Grid'])
+            except (TypeError, ValueError):
+                map_id = None
+            name = str(node.get('PlayerName') or '').strip()
+            try:
+                player_id = int(node['PlayerID'])
+            except (TypeError, ValueError):
+                player_id = None
+            status = node.get('Status')
+            status = int(status) if isinstance(status, (int, bool)) and int(status) in (0, 1) else None
+            if map_id is not None and 0 < map_id < MAX_MAP and name and name.isprintable():
+                if with_extra:
+                    extra = {'level': node.get('Level'), 'peerage': node.get('peerage'),
+                             'alliance': (node.get('Code') or None), 'alliance_name': (node.get('AllianceName') or None),
+                             'honor': node.get('honorLevel'), 'world': node.get('fromWorldId')}
+                    yield map_id, player_id, name, status, extra
+                else:
+                    yield map_id, player_id, name, status
+            continue
+        stack.extend(v for v in node.values() if isinstance(v, (dict, list)))
+
+
 def frame(entry):
     if entry.get('kind') == 'Network.webSocketFrameReceived':
         response = entry.get('params', {}).get('response', {})
@@ -188,6 +232,17 @@ class Tracker:
         self.counts[mid] += 1
         stamp, elapsed = entry.get('timestamp_utc', ''), entry.get('elapsed_seconds', '?')
         changed = False
+        if mid in (9001, 9002, 9008) and raw[13:].lstrip()[:1] == b'{':
+            for map_id, player_id, name, status, extra in json_castles(raw[13:], with_extra=True):
+                item = self.get_item(player_id, map_id, name)
+                item['last_seen_utc'] = stamp
+                item['observations'] += 1
+                item['extra'] = extra
+                if mid in (9001, 9008):
+                    # 9002 carries position updates only; never a protection flag.
+                    self.update_status(item, status, f'{mid}.json.Status', stamp, elapsed)
+                changed = True
+            return changed
         if mid == 9001:
             # First, decode full records with validated field 10.
             full = list(full_9001_records(raw))

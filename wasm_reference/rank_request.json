@@ -1,0 +1,17 @@
+{
+ "build": "gotwic_2cafd796d485",
+ "verified": "2026-11-25, across a page reload",
+ "slot": 76143,
+ "name": "62398",
+ "length": 4,
+ "object_root": 6664780,
+ "object_offsets": [
+  92,
+  4
+ ],
+ "method_root": 6964308,
+ "args": [
+  1,
+  1
+ ]
+}

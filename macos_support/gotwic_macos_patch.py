@@ -1,0 +1,121 @@
+"""macOS compatibility layer for GOTWiC Scanner.
+
+This file is NOT part of the upstream release manifest, so the built-in updater
+never overwrites it. It is loaded automatically by every Python process of the
+scanner's virtual environment through `gotwic_macos.pth` (installed by
+RUN_MAC.command), including the processes the GUI starts itself (scanner,
+power detector, updater restart).
+
+On Windows only the theme hook is used (RUN_WINDOWS.bat installs the same .pth
+into .venv-win); the license tweaks below are macOS-only.
+
+What it changes, only on macOS (sys.platform == 'darwin'):
+  * license_client._machine_id  -> hashed IOPlatformUUID (the Mac hardware UUID)
+                                   instead of the Windows registry MachineGuid.
+  * license_client._license_path -> ~/Library/Application Support/GOTWiC-Scanner/license.json
+The license is still validated online by the same server; nothing is skipped.
+
+The upstream files are patched in memory after they are imported, so they stay
+byte-identical to the GitHub release and the updater keeps working.
+"""
+import hashlib
+import importlib.abc
+import importlib.machinery
+import os
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+_IS_MAC = sys.platform == 'darwin' or os.environ.get('GOTWIC_FORCE_MACOS_PATCH') == '1'
+_IS_WINDOWS = os.name == 'nt'
+_ENABLED = _IS_MAC or _IS_WINDOWS
+
+
+def mac_hardware_uuid():
+    """Return the stable hardware UUID (same value as 'About This Mac' > System Report)."""
+    output = subprocess.run(['/usr/sbin/ioreg', '-rd1', '-c', 'IOPlatformExpertDevice'],
+                            capture_output=True, text=True, timeout=10, check=True).stdout
+    match = re.search(r'"IOPlatformUUID"\s*=\s*"([0-9A-Fa-f-]{36})"', output)
+    if not match:
+        raise RuntimeError('macOS hardware UUID (IOPlatformUUID) is unavailable.')
+    return match.group(1)
+
+
+def _machine_id():
+    """Hash the Mac hardware UUID; never transmit the raw UUID (same scheme as Windows)."""
+    uuid = os.environ.get('GOTWIC_TEST_HARDWARE_UUID') or mac_hardware_uuid()
+    return hashlib.sha256(('GOTWiC-Scanner-device-v1:' + uuid.strip().lower()).encode('utf-8')).hexdigest()
+
+
+def _license_path():
+    return Path.home() / 'Library' / 'Application Support' / 'GOTWiC-Scanner' / 'license.json'
+
+
+def _patch_license_client(module):
+    module._machine_id = _machine_id
+    module._license_path = _license_path
+
+
+def _patch_qtwidgets(module):
+    """Swap in a QApplication subclass that applies the redesigned theme (gui_theme.py)."""
+    if os.environ.get('GOTWIC_THEME', '').lower() == 'off' or getattr(module, '_gotwic_themed', False):
+        return
+    base = module.QApplication
+
+    class QApplication(base):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            try:
+                import gui_theme
+                gui_theme.install(self)
+            except Exception as exc:  # cosmetics must never stop the app
+                print(f'Theme not applied: {exc}', file=sys.stderr)
+
+    module.QApplication = QApplication
+    module._gotwic_themed = True
+
+
+_PATCHES = {'PySide6.QtWidgets': _patch_qtwidgets}
+if _IS_MAC:
+    _PATCHES['license_client'] = _patch_license_client
+
+
+class _PatchingLoader(importlib.abc.Loader):
+    def __init__(self, wrapped, patch):
+        self._wrapped = wrapped
+        self._patch = patch
+
+    def create_module(self, spec):
+        return self._wrapped.create_module(spec)
+
+    def exec_module(self, module):
+        self._wrapped.exec_module(module)
+        self._patch(module)
+
+
+class _PatchingFinder(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        patch = _PATCHES.get(fullname)
+        if patch is None:
+            return None
+        spec = importlib.machinery.PathFinder.find_spec(fullname, path)
+        if spec is None or spec.loader is None:
+            return None
+        spec.loader = _PatchingLoader(spec.loader, patch)
+        return spec
+
+
+def install():
+    if not _ENABLED:
+        return
+    if any(isinstance(f, _PatchingFinder) for f in sys.meta_path):
+        return
+    sys.meta_path.insert(0, _PatchingFinder())
+    # Already imported (unlikely): patch in place.
+    for name, patch in _PATCHES.items():
+        if name in sys.modules:
+            patch(sys.modules[name])
+
+
+install()

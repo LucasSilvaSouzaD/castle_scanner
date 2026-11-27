@@ -1,0 +1,1580 @@
+{
+  "version": "2.2",
+  "scan_utc": "2026-11-25T21:14:42.402125Z",
+  "kingdom": 1,
+  "mode": "auto",
+  "step_x": 25,
+  "step_y": 13,
+  "delay_seconds": 0,
+  "errors": [],
+  "import": {
+    "status": "skipped",
+    "row_count": 0
+  },
+  "csv_export": {
+    "status": "success",
+    "filename": "/Users/lucas/Documents/Github/castle_scanner_2/csv/1_20261125_211442_402125.csv",
+    "row_count": 150
+  },
+  "castles": [
+    {
+      "x": 535,
+      "y": 110,
+      "map_id": 79735,
+      "name": "maria neta",
+      "player_id": 2125699359479482395,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 193,
+      "y": 154,
+      "map_id": 111073,
+      "name": "Surudoi",
+      "player_id": 3206563271605069806,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 580,
+      "y": 150,
+      "map_id": 108580,
+      "name": "ilham 1960",
+      "player_id": 2125699359548783940,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 389,
+      "y": 345,
+      "map_id": 248789,
+      "name": "erwin12",
+      "player_id": 2125699359137466210,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 140,
+      "y": 368,
+      "map_id": 265100,
+      "name": "Cute HoF 02",
+      "player_id": 3855081619663706681,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 451,
+      "y": 378,
+      "map_id": 272611,
+      "name": "demontargary",
+      "player_id": 2125699359039090034,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 623,
+      "y": 393,
+      "map_id": 283583,
+      "name": "Black crow",
+      "player_id": 2125699359130468081,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 303,
+      "y": 422,
+      "map_id": 304143,
+      "name": "tomi01",
+      "player_id": 2125699359278560639,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 360,
+      "y": 437,
+      "map_id": 315000,
+      "name": "zog zog",
+      "player_id": 2125699359371404664,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 484,
+      "y": 437,
+      "map_id": 315124,
+      "name": "fbDaoRok573",
+      "player_id": 2738188916574298905,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 427,
+      "y": 449,
+      "map_id": 323707,
+      "name": "STRESU",
+      "player_id": 2125699359521647118,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 302,
+      "y": 466,
+      "map_id": 335822,
+      "name": "Ahtopol",
+      "player_id": 2125699359010565865,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 343,
+      "y": 469,
+      "map_id": 338023,
+      "name": "Aurelion I",
+      "player_id": 2125699359513171224,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 584,
+      "y": 463,
+      "map_id": 333944,
+      "name": "Driftmark",
+      "player_id": 2125699359375107141,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 597,
+      "y": 479,
+      "map_id": 345477,
+      "name": "walderlanio",
+      "player_id": 2125699359318309307,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 488,
+      "y": 482,
+      "map_id": 347528,
+      "name": "Sergey 009",
+      "player_id": 2125699359182170102,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 489,
+      "y": 487,
+      "map_id": 351129,
+      "name": "Bane HoF 2",
+      "player_id": 3855081619640056646,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 490,
+      "y": 487,
+      "map_id": 351130,
+      "name": "Bane HoF 1",
+      "player_id": 3855081619634281807,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 491,
+      "y": 486,
+      "map_id": 350411,
+      "name": "Bane HoF 4",
+      "player_id": 3674937635217773522,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 491,
+      "y": 487,
+      "map_id": 351131,
+      "name": "Lightbane",
+      "player_id": 2125699359359081732,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 486,
+      "map_id": 350412,
+      "name": "Bane HoF 5",
+      "player_id": 2341872146052869572,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 487,
+      "map_id": 351132,
+      "name": "Stormrose",
+      "player_id": 2125699359534467718,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 486,
+      "map_id": 350413,
+      "name": "Bane HoF 6",
+      "player_id": 2738188916764474423,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 487,
+      "map_id": 351133,
+      "name": "Lurksalot",
+      "player_id": 2125699359538405956,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 487,
+      "map_id": 351134,
+      "name": "Bane HoF 7",
+      "player_id": 2738188916766340617,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 436,
+      "y": 496,
+      "map_id": 357556,
+      "name": "Ser Ticzy",
+      "player_id": 108086716268573065,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 446,
+      "y": 491,
+      "map_id": 353966,
+      "name": "Scoutiznhooo",
+      "player_id": 2125699359382934549,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 485,
+      "y": 488,
+      "map_id": 351845,
+      "name": "GINSAKE",
+      "player_id": 2702160111361716497,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 486,
+      "y": 489,
+      "map_id": 352566,
+      "name": "Tikshna",
+      "player_id": 2125699359096855350,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 487,
+      "y": 488,
+      "map_id": 351847,
+      "name": "Makc92",
+      "player_id": 2125699359533514122,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 487,
+      "y": 489,
+      "map_id": 352567,
+      "name": "MOUSEMAN",
+      "player_id": 2125699359449407479,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 488,
+      "y": 489,
+      "map_id": 352568,
+      "name": "Tik HoF 01",
+      "player_id": 2341872146056261107,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 488,
+      "y": 490,
+      "map_id": 353288,
+      "name": "WizardQooq",
+      "player_id": 1405123420569526478,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 489,
+      "y": 488,
+      "map_id": 351849,
+      "name": "i am  friend",
+      "player_id": 2125699359264998660,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 489,
+      "y": 489,
+      "map_id": 352569,
+      "name": "Salyeri",
+      "player_id": 2125699359350271731,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 489,
+      "y": 490,
+      "map_id": 353289,
+      "name": "Koolasuchus",
+      "player_id": 2269814547191197853,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 490,
+      "y": 488,
+      "map_id": 351850,
+      "name": "Bane HoF 3",
+      "player_id": 3855081619649438521,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 490,
+      "y": 489,
+      "map_id": 352570,
+      "name": "Police nd PO",
+      "player_id": 1261008232240625250,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 490,
+      "y": 490,
+      "map_id": 353290,
+      "name": "McGee1",
+      "player_id": 2125699359177535761,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 491,
+      "y": 488,
+      "map_id": 351851,
+      "name": "Draci Rytier",
+      "player_id": 2125699359557429591,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 491,
+      "y": 489,
+      "map_id": 352571,
+      "name": "BANANAAA",
+      "player_id": 3206563271378324309,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 491,
+      "y": 490,
+      "map_id": 353291,
+      "name": "Tik HoF 03",
+      "player_id": 3674937635446873341,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 488,
+      "map_id": 351852,
+      "name": "x P A I N x",
+      "player_id": 2125699359278589971,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 489,
+      "map_id": 352572,
+      "name": "BodBayLT",
+      "player_id": 2125699359416043320,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 490,
+      "map_id": 353292,
+      "name": "Tik HoF 02",
+      "player_id": 2341872146065960880,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 491,
+      "map_id": 354012,
+      "name": "DVIG",
+      "player_id": 2125699359021265138,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 492,
+      "y": 492,
+      "map_id": 354732,
+      "name": "Sung JWoo",
+      "player_id": 2125699359167992830,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 488,
+      "map_id": 351853,
+      "name": "FortKrox",
+      "player_id": 576461090071645419,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 489,
+      "map_id": 352573,
+      "name": "LadyDeVil",
+      "player_id": 2702160112385987822,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 490,
+      "map_id": 353293,
+      "name": "QMFire",
+      "player_id": 2125699359105269480,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 491,
+      "map_id": 354013,
+      "name": "e1paso",
+      "player_id": 2125699359002356159,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 493,
+      "y": 492,
+      "map_id": 354733,
+      "name": "Cerverus",
+      "player_id": 2125699359537435826,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 488,
+      "map_id": 351854,
+      "name": "Dropgoal",
+      "player_id": 216173112253596682,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 489,
+      "map_id": 352574,
+      "name": "CuteBlade",
+      "player_id": 1008806650857975191,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 490,
+      "map_id": 353294,
+      "name": "Soekarno0",
+      "player_id": 2125699359078988271,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 493,
+      "map_id": 355454,
+      "name": "Devil HoF 02",
+      "player_id": 900720263961790918,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 495,
+      "y": 492,
+      "map_id": 354735,
+      "name": "ERROR 418",
+      "player_id": 828662664066063988,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 495,
+      "y": 493,
+      "map_id": 355455,
+      "name": "Name123",
+      "player_id": 900720263959639769,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 496,
+      "y": 493,
+      "map_id": 355456,
+      "name": "De Vil 01",
+      "player_id": 3855081619675638863,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 496,
+      "y": 494,
+      "map_id": 356176,
+      "name": "xxCRU3LLAxx",
+      "player_id": 2954361689166818114,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 497,
+      "y": 493,
+      "map_id": 355457,
+      "name": "De Vil 02",
+      "player_id": 900720263955348584,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 498,
+      "y": 488,
+      "map_id": 351858,
+      "name": "Smokey246",
+      "player_id": 2125699359141527451,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 498,
+      "y": 489,
+      "map_id": 352578,
+      "name": "Торопышка555",
+      "player_id": 3206563271419473307,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 498,
+      "y": 490,
+      "map_id": 353298,
+      "name": "Birzi",
+      "player_id": 2125699359028512420,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 499,
+      "y": 488,
+      "map_id": 351859,
+      "name": "Эдуард V",
+      "player_id": 2125699359376689191,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 500,
+      "y": 490,
+      "map_id": 353300,
+      "name": "Сирин",
+      "player_id": 2125699359204399983,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 501,
+      "y": 489,
+      "map_id": 352581,
+      "name": "Racer99",
+      "player_id": 2125699359425428041,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 502,
+      "y": 490,
+      "map_id": 353302,
+      "name": "Atomic999",
+      "player_id": 3855081619538519624,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 502,
+      "y": 492,
+      "map_id": 354742,
+      "name": "Greaper",
+      "player_id": 2125699359185058937,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 508,
+      "y": 488,
+      "map_id": 351868,
+      "name": "Lord Noc",
+      "player_id": 2702160112306826964,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 510,
+      "y": 489,
+      "map_id": 352590,
+      "name": "Lady Murmur",
+      "player_id": 2125699359223281337,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 569,
+      "y": 500,
+      "map_id": 360569,
+      "name": "andi12342",
+      "player_id": 2125699359145524931,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 581,
+      "y": 497,
+      "map_id": 358421,
+      "name": "Kambucha",
+      "player_id": 2125699359123260614,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 592,
+      "y": 499,
+      "map_id": 359872,
+      "name": "7be84401ecce",
+      "player_id": 2125699359509235202,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 594,
+      "y": 497,
+      "map_id": 358434,
+      "name": "Nordlicht77",
+      "player_id": 2125699359183795618,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 596,
+      "y": 489,
+      "map_id": 352676,
+      "name": "kyryl 8",
+      "player_id": 2125699359984205867,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 598,
+      "y": 494,
+      "map_id": 356278,
+      "name": "King of CHN",
+      "player_id": 2125699359169667168,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 598,
+      "y": 500,
+      "map_id": 360598,
+      "name": "JuCaLeUr",
+      "player_id": 2125699359049119478,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 599,
+      "y": 495,
+      "map_id": 356999,
+      "name": "Lord Varys1",
+      "player_id": 2125699359349925520,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 600,
+      "y": 495,
+      "map_id": 357000,
+      "name": "jtw96",
+      "player_id": 2125699359591558444,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 602,
+      "y": 489,
+      "map_id": 352682,
+      "name": "Shmue",
+      "player_id": 2125699359303691342,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 591,
+      "y": 501,
+      "map_id": 361311,
+      "name": "LordeWESLLEY",
+      "player_id": 2125699359296149422,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 596,
+      "y": 501,
+      "map_id": 361316,
+      "name": "amater201",
+      "player_id": 2125699359568424449,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 567,
+      "y": 508,
+      "map_id": 366327,
+      "name": "SniperXLord",
+      "player_id": 2125699359567192808,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 569,
+      "y": 505,
+      "map_id": 364169,
+      "name": "bIV",
+      "player_id": 2125699359042459936,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 569,
+      "y": 513,
+      "map_id": 369929,
+      "name": "ShaneS",
+      "player_id": 2125699359382796631,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 571,
+      "y": 506,
+      "map_id": 364891,
+      "name": "aljdofyoifhe",
+      "player_id": 2125699359494448716,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 573,
+      "y": 506,
+      "map_id": 364893,
+      "name": "Davi1983",
+      "player_id": 2125699359226922139,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 576,
+      "y": 511,
+      "map_id": 368496,
+      "name": "Monster Soul",
+      "player_id": 2125699359467807100,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 542,
+      "y": 507,
+      "map_id": 365582,
+      "name": "LittLe Bird",
+      "player_id": 2125699359350430246,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 544,
+      "y": 501,
+      "map_id": 361264,
+      "name": "menastyle",
+      "player_id": 2125699359350913992,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 549,
+      "y": 511,
+      "map_id": 368469,
+      "name": "fc2848b318ed",
+      "player_id": 2125699359134202774,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 560,
+      "y": 510,
+      "map_id": 367760,
+      "name": "порполор",
+      "player_id": 2125699359570519883,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 521,
+      "y": 509,
+      "map_id": 367001,
+      "name": "RRRlord987qq",
+      "player_id": 2125699359453287974,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 522,
+      "y": 506,
+      "map_id": 364842,
+      "name": "Charlotte012",
+      "player_id": 2125699359313991369,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 526,
+      "y": 503,
+      "map_id": 362686,
+      "name": "санек34",
+      "player_id": 2125699359288962825,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 488,
+      "y": 508,
+      "map_id": 366248,
+      "name": "PELOREUS",
+      "player_id": 2125699359375438906,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 490,
+      "y": 512,
+      "map_id": 369130,
+      "name": "viriose",
+      "player_id": 2125699359343641157,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 497,
+      "y": 510,
+      "map_id": 367697,
+      "name": "Lulu97",
+      "player_id": 2125699359032099821,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 498,
+      "y": 505,
+      "map_id": 364098,
+      "name": "BurntDonuts",
+      "player_id": 2125699359101475044,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 499,
+      "y": 505,
+      "map_id": 364099,
+      "name": "BurntCookies",
+      "player_id": 2125699359030343355,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 505,
+      "y": 506,
+      "map_id": 364825,
+      "name": "SlantedEyez",
+      "player_id": 2125699359556837238,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 505,
+      "y": 511,
+      "map_id": 368425,
+      "name": "Mickisinho",
+      "player_id": 2125699359049170369,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 483,
+      "y": 510,
+      "map_id": 367683,
+      "name": "LEIGE",
+      "player_id": 2125699359393045960,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 440,
+      "y": 512,
+      "map_id": 369080,
+      "name": "4d1048da2460",
+      "player_id": 2125699359471918144,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 447,
+      "y": 505,
+      "map_id": 364047,
+      "name": "Rhaenys122",
+      "player_id": 2125699359439310546,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 435,
+      "y": 504,
+      "map_id": 363315,
+      "name": "Tiwil",
+      "player_id": 2125699359092224083,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 201,
+      "y": 520,
+      "map_id": 374601,
+      "name": "King999",
+      "player_id": 2125699359163714567,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 444,
+      "y": 520,
+      "map_id": 374844,
+      "name": "1c7f9068cfa6",
+      "player_id": 2125699359219073321,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 445,
+      "y": 525,
+      "map_id": 378445,
+      "name": "Abadale",
+      "player_id": 2125699359435653639,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 445,
+      "y": 526,
+      "map_id": 379165,
+      "name": "Тит Пуллон",
+      "player_id": 2125699359444753060,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 458,
+      "y": 520,
+      "map_id": 374858,
+      "name": "yfytv6",
+      "player_id": 2125699359193178228,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 466,
+      "y": 514,
+      "map_id": 370546,
+      "name": "Art Kost",
+      "player_id": 2125699359197006420,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 470,
+      "y": 514,
+      "map_id": 370550,
+      "name": "xx raven xx",
+      "player_id": 3855081619765258121,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 473,
+      "y": 526,
+      "map_id": 379193,
+      "name": "Prince3570",
+      "player_id": 2125699359152912935,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 477,
+      "y": 516,
+      "map_id": 371997,
+      "name": "DD2026",
+      "player_id": 2125699359049096534,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 487,
+      "y": 519,
+      "map_id": 374167,
+      "name": "Werterdor",
+      "player_id": 2125699359117121388,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 487,
+      "y": 525,
+      "map_id": 378487,
+      "name": "230475",
+      "player_id": 2125699359131421263,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 558,
+      "y": 517,
+      "map_id": 372798,
+      "name": "Jotham Yawar",
+      "player_id": 2125699359337823863,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 568,
+      "y": 515,
+      "map_id": 371368,
+      "name": "TAYLOR GREAT",
+      "player_id": 2125699359124329988,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 543,
+      "y": 539,
+      "map_id": 388623,
+      "name": "Iperium Rex",
+      "player_id": 2125699359255395991,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 515,
+      "y": 535,
+      "map_id": 385715,
+      "name": "FRED STARK",
+      "player_id": 2125699359511093467,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 518,
+      "y": 533,
+      "map_id": 384278,
+      "name": "Galletus",
+      "player_id": 2125699359579436382,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 518,
+      "y": 539,
+      "map_id": 388598,
+      "name": "Marcelod",
+      "player_id": 2125699359401328129,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 522,
+      "y": 529,
+      "map_id": 381402,
+      "name": "Ludovico II",
+      "player_id": 2125699359218446185,
+      "status": "UNKNOWN",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 536,
+      "y": 530,
+      "map_id": 382136,
+      "name": "т34 85",
+      "player_id": 2125699359304875947,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 502,
+      "y": 535,
+      "map_id": 385702,
+      "name": "henry665",
+      "player_id": 2125699359447903639,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 470,
+      "y": 531,
+      "map_id": 382790,
+      "name": "e7495a044126",
+      "player_id": 2125699359473574718,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 474,
+      "y": 534,
+      "map_id": 384954,
+      "name": "Badj0ker",
+      "player_id": 2125699359133739629,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 482,
+      "y": 539,
+      "map_id": 388562,
+      "name": "caronte argo",
+      "player_id": 2125699359375326116,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 447,
+      "y": 537,
+      "map_id": 387087,
+      "name": "Juan II",
+      "player_id": 2125699359125187475,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 462,
+      "y": 535,
+      "map_id": 385662,
+      "name": "PuturruDeFua",
+      "player_id": 2125699359270772229,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 434,
+      "y": 532,
+      "map_id": 383474,
+      "name": "LordBArt",
+      "player_id": 2125699359348321432,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 468,
+      "y": 544,
+      "map_id": 392148,
+      "name": "Махонький",
+      "player_id": 1513209810211279365,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 473,
+      "y": 547,
+      "map_id": 394313,
+      "name": "shaggy22",
+      "player_id": 2125699359582999242,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 480,
+      "y": 548,
+      "map_id": 395040,
+      "name": "B0LT",
+      "player_id": 2125699359210226251,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 483,
+      "y": 540,
+      "map_id": 389283,
+      "name": "БеЗымянный",
+      "player_id": 2125699359440059891,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 542,
+      "map_id": 390734,
+      "name": "SylvesterXYZ",
+      "player_id": 3062448081668786362,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 494,
+      "y": 545,
+      "map_id": 392894,
+      "name": "DONALDTRUMP",
+      "player_id": 2125699359570605919,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 496,
+      "y": 546,
+      "map_id": 393616,
+      "name": "JerseyLivest",
+      "player_id": 2125699359085294764,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 497,
+      "y": 551,
+      "map_id": 397217,
+      "name": "df6a04852420",
+      "player_id": 2125699359522315699,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 514,
+      "y": 540,
+      "map_id": 389314,
+      "name": "GOT Vickon",
+      "player_id": 2125699359402605404,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 567,
+      "y": 564,
+      "map_id": 406647,
+      "name": "STRZEGOMITA",
+      "player_id": 2125699359129302590,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 482,
+      "y": 553,
+      "map_id": 398642,
+      "name": "KalsonTee",
+      "player_id": 2125699359081529047,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 196,
+      "y": 574,
+      "map_id": 413476,
+      "name": "KALSs",
+      "player_id": 2125699358997769284,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 585,
+      "y": 660,
+      "map_id": 475785,
+      "name": "egali",
+      "player_id": 2125699359571411478,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 587,
+      "y": 661,
+      "map_id": 476507,
+      "name": "Egal123",
+      "player_id": 2413929737355327029,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 280,
+      "y": 678,
+      "map_id": 488440,
+      "name": "Cute HoF 01",
+      "player_id": 3855081619634690497,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 469,
+      "y": 693,
+      "map_id": 499429,
+      "name": "April GG",
+      "player_id": 2125699359031856888,
+      "status": "UNPROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    },
+    {
+      "x": 437,
+      "y": 684,
+      "map_id": 492917,
+      "name": "Le Fondeur",
+      "player_id": 2125699359035402154,
+      "status": "PROTECTED",
+      "power_millions": 0,
+      "observations": 1
+    }
+  ],
+  "context_id": 3,
+  "preflight": {
+    "ok": true,
+    "functionName": "128312"
+  },
+  "kingdom_selection": {
+    "ok": true,
+    "returnValue": "undefined"
+  },
+  "mask": {
+    "file": "/Users/lucas/Documents/Github/castle_scanner_2/gotwic_kingdom542_production_mask.json",
+    "original_points": 1710,
+    "retained_points": 1447,
+    "excluded_points": 266,
+    "extra_points": [
+      [
+        680,
+        623
+      ],
+      [
+        670,
+        629
+      ],
+      [
+        664,
+        634
+      ]
+    ]
+  },
+  "gui_alliances": [],
+  "power_lookup": {
+    "enabled": false,
+    "eligible": 0,
+    "skipped": 0,
+    "attempted": 0,
+    "matched": 0,
+    "unavailable": 0,
+    "timeout_seconds": 2.5,
+    "errors": []
+  },
+  "summary": {
+    "navigation_successes": 1447,
+    "navigation_planned": 1447,
+    "missing_response_points": 0,
+    "retry_attempts": 0,
+    "response_timeout_seconds": 1.5,
+    "max_retries": 2,
+    "buffer_size": 20,
+    "batch_stats": {
+      "completed": 73,
+      "short": 0,
+      "max_outstanding": 20
+    },
+    "average_batch_duration_seconds": 0.5373,
+    "castle_9001_frames": 1448,
+    "decoded_castles": 150,
+    "elapsed_seconds": 42.231
+  },
+  "missing_points": []
+}

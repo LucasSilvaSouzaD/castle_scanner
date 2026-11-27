@@ -10,6 +10,7 @@ import websocket
 from gotwic_scanner_v2_2 import (NAV, PREFLIGHT, KINGDOM_SELECT, decode_power_20007, POWER_TIMEOUT,
     POWER_WATER_MAP_ID)
 from power_timing import PROFILES, DEFAULT_PROFILE, timings
+import power_ranking
 
 
 def power_session(port, profile=DEFAULT_PROFILE, keep_open=False, kingdom=None):
@@ -47,6 +48,9 @@ def power_session(port, profile=DEFAULT_PROFILE, keep_open=False, kingdom=None):
                 return
             try:
                 raw = base64.b64decode(response.get('payloadData', ''), validate=True)
+                if len(raw) >= 13 and int.from_bytes(raw[4:8], 'big') in power_ranking.RANK_MESSAGE_IDS:
+                    power_ranking.record_frame(raw)
+                    return
                 if len(raw) >= 13 and int.from_bytes(raw[4:8], 'big') == 20007:
                     decoded = decode_power_20007(raw)
                     if decoded:
@@ -88,9 +92,24 @@ def power_session(port, profile=DEFAULT_PROFILE, keep_open=False, kingdom=None):
                 raise RuntimeError(f'Kingdom switch to {kingdom} failed: {switched}')
             # Allow the asynchronous game transition to settle before map navigation.
             time.sleep(0.5)
+        try:
+            import rank_auto
+            if (evaluate(rank_auto.request_js(), cid) or {}).get('ok'):
+                until = time.monotonic() + 2.0
+                while time.monotonic() < until:
+                    poll()
+        except Exception:
+            pass
         viewport=evaluate('(()=>({w:innerWidth,h:innerHeight}))()',cid)
         px,py=round(viewport['w']*.8),round(viewport['h']*.75)
         def lookup(x, y, name):
+            hit = power_ranking.Ranking().find(name=name)
+            if hit:
+                # Power already known from the in-game ranking: no castle visit needed.
+                return {'success':True,'x':x,'y':y,'player':name,'power':hit['power'],
+                        'alliance':hit.get('alliance'),'source':'ranking',
+                        'kills':hit.get('kill'),'merit':hit.get('merit'),
+                        'power_millions':f"{hit['power']/1000000:.3f}"}
             profiles.clear()
             start=time.monotonic()
             try:
@@ -106,6 +125,7 @@ def power_session(port, profile=DEFAULT_PROFILE, keep_open=False, kingdom=None):
                             power=profile['power']
                             return {'success':True,'x':x,'y':y,'player':name,'power':power,
                                     'alliance':profile.get('alliance'),
+                                    'kills':profile.get('kill'),'merit':profile.get('merit'),
                                     'power_millions':f'{power/1000000:.3f}'}
                     poll()
                 raise TimeoutError(f"No matching castle profile received within {timing['timeout']:g} seconds")
